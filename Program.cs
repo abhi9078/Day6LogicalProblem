@@ -6,25 +6,31 @@ namespace Day6LogicalProblem
 {
     internal class Program
     {
-      public static void SimulateStopwatch()
+        public static void CouponNumber()
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            for (int i = 0; i < 1000; i++)
+            Console.WriteLine("Please Enter how many Random distinct number you want: ");
+            int num = int.Parse(Console.ReadLine());
+            int[] ran = new int[num];
+            Console.WriteLine("Enter the Starting range of Random Number you want");
+            int str=int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the ending range of Random numnber you want ");
+            int end= int.Parse(Console.ReadLine());
+            for (int i = 0; i < num; i++)
             {
-                Thread.Sleep(2);
+                Random random = new Random();
+                int n = random.Next(str, end);
+                ran[i] = n;
             }
-            stopwatch.Stop();
-            Console.WriteLine("End");
-            Console.WriteLine("Time elapsed: {0}",
-                stopwatch.Elapsed);
+            Console.WriteLine("All Random Distinct Numbers are: ");
+            foreach (int j in ran)
+            {
+                Console.WriteLine(j);
+            }
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, Welcome to Simulate Stopwatch Program");
-            Console.ReadKey();
-            Console.WriteLine("Starting Stopwatch Time: ");
-            Program.SimulateStopwatch();
+            Console.WriteLine("Hello, Welcome to Coupon Number Program");
+            Program.CouponNumber();
         }
     }
 }
