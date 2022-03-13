@@ -1,28 +1,30 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading;
 
 namespace Day6LogicalProblem
 {
     internal class Program
     {
-       public static void ReverseNumber()
+      public static void SimulateStopwatch()
         {
-            Console.WriteLine("Please Enter a Number To check Reverese Number: ");
-            int num = int.Parse(Console.ReadLine());
-            int temp, rem, rev = 0;
-            temp = num;
-            while (num > 0)
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            for (int i = 0; i < 1000; i++)
             {
-                rem = num % 10;
-                rev = ((rev * 10) + rem);
-                num = num / 10;
+                Thread.Sleep(2);
             }
-
-            Console.WriteLine("Reverse of the number "+temp+" is: "+rev);
+            stopwatch.Stop();
+            Console.WriteLine("End");
+            Console.WriteLine("Time elapsed: {0}",
+                stopwatch.Elapsed);
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, Welcome to Reverse number Program");
-            Program.ReverseNumber();
+            Console.WriteLine("Hello, Welcome to Simulate Stopwatch Program");
+            Console.ReadKey();
+            Console.WriteLine("Starting Stopwatch Time: ");
+            Program.SimulateStopwatch();
         }
     }
 }
