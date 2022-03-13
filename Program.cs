@@ -4,32 +4,32 @@ namespace Day6LogicalProblem
 {
     internal class Program
     {
-        public static void PerfectNumber()
+       public static void PrimeNumber()
         {
-            int temp, sum = 0;
-            Console.Write("enter the Number");
-            int num = int.Parse(Console.ReadLine());
-            temp = num;
-            for (int i = 1; i < num; i++)
+            Console.WriteLine("Enter a Number to Check prime or not: ");
+            int num=int.Parse(Console.ReadLine());
+            int count = 0;
+            for (int i = 1; i <= num; i++)
             {
                 if (num % i == 0)
                 {
-                    sum = sum + i;
+                    count++;
                 }
             }
-            if (sum == temp)
+            if (count == 2)
             {
-                Console.WriteLine("Entered number "+ num + " is a perfect number");
+                Console.WriteLine("Enetred Number "+num+" Is a prime number");
             }
             else
             {
-                Console.WriteLine("Entered number is not a perfect number");
+                Console.WriteLine("Not a prime number");
             }
+            Console.ReadLine();
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, Welcome to perfect number Program");
-            Program.PerfectNumber();
+            Console.WriteLine("Hello, Welcome to Prime number Program");
+            Program.PrimeNumber();
         }
     }
 }
